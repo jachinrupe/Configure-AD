@@ -88,8 +88,35 @@ From the Azure Portal, set Client-1’s DNS settings to the DC’s Private IP ad
 
 From the Azure Portal, restart Client-1
 Login to Client-1 (Remote Desktop) as the original local admin (labuser) and join it to the domain (computer will restart)
+![Screenshot 2023-11-05 124024](https://github.com/jachinrupe/Configure-AD/assets/149485790/a995a30f-6879-4476-b8b7-bee6df6c34c5)
+
 
 Login to the Domain Controller (Remote Desktop) and verify Client-1 shows up in Active Directory Users and Computers (ADUC) inside the “Computers” container on the root of the domain
+![Screenshot 2023-11-05 124436](https://github.com/jachinrupe/Configure-AD/assets/149485790/139b9ced-7b2b-4dc8-aecd-b5d9d23b18da)
+
 Create a new OU named “_CLIENTS” and drag Client-1 into there (Step is not really necessary, just for organizational purposes. I guess I skipped this in the lab!)
+![Screenshot 2023-11-05 124539](https://github.com/jachinrupe/Configure-AD/assets/149485790/90628def-c216-4c44-af57-da2c7dc36a3b)
+
+Setup Remote Desktop for non-administrative users on Client-1
+Log into Client-1 as mydomain.com\jane_admin and open system properties
+Click “Remote Desktop”
+![Screenshot 2023-11-05 125007](https://github.com/jachinrupe/Configure-AD/assets/149485790/7cb3ada4-89f8-49da-9809-7b8cb82d03e8)
+Allow “domain users” access to remote desktop
+![Screenshot 2023-11-05 125057](https://github.com/jachinrupe/Configure-AD/assets/149485790/cbfe8943-e1d3-401a-adde-c9d33a6b3c64)
+![Screenshot 2023-11-05 125106](https://github.com/jachinrupe/Configure-AD/assets/149485790/d441e78b-55f4-4f85-878a-1748ed521dae)
+
+You can now log into Client-1 as a normal, non-administrative user now
+
+Create a bunch of additional users and attempt to log into client-1 with one of the users
+Login to DC-1 as jane_admin
+Open PowerShell_ise as an administrator
+![Screenshot 2023-11-05 125613](https://github.com/jachinrupe/Configure-AD/assets/149485790/42207551-e4fa-45d3-9a7a-092fcb8e6147)
+Create a new File and paste the contents of the script into it (https://github.com/joshmadakor1/AD_PS/blob/master/Generate-Names-Create-Users.ps1)
+Run the script and observe the accounts being created
+![Screenshot 2023-11-05 125817](https://github.com/jachinrupe/Configure-AD/assets/149485790/f36dd540-7681-4f04-a095-112531b55427)
+
+When finished, open ADUC and observe the accounts in the appropriate OU
+attempt to log into Client-1 with one of the accounts (take note of the password in the script)
+
 
 
