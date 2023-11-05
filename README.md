@@ -117,6 +117,8 @@ Run the script and observe the accounts being created
 
 When finished, open ADUC and observe the accounts in the appropriate OU
 attempt to log into Client-1 with one of the accounts (take note of the password in the script)
+![Screenshot 2023-11-05 131526](https://github.com/jachinrupe/Configure-AD/assets/149485790/950fa05b-ec02-4b24-9ab7-c0dbbf89396e)
+
 
 
 
